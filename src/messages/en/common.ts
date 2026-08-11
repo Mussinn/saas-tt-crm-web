@@ -56,6 +56,7 @@ export default {
     },
     notifications: {
         sessionCheckFailed: 'Could not verify the current session. Refresh the page and try again.',
+        systemUpdatedSignInAgain: 'The system was updated. Please sign in again.',
         authServerUnavailable: 'The authentication server is unavailable. Check your connection and try again.',
         newMessage: 'New message',
         successTitle: 'Done',

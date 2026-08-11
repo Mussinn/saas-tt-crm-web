@@ -56,6 +56,7 @@ export default {
     },
     notifications: {
         sessionCheckFailed: 'Ағымдағы сессияны тексеру мүмкін болмады. Бетті жаңартып, қайталап көріңіз.',
+        systemUpdatedSignInAgain: 'Жүйе жаңартылды. Қайта кіріңіз.',
         authServerUnavailable: 'Авторизация серверімен байланыс жоқ. Қосылымды тексеріп, қайталап көріңіз.',
         newMessage: 'Жаңа хабарлама',
         successTitle: 'Дайын',

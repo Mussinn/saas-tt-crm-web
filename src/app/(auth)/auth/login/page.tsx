@@ -126,6 +126,8 @@ export default function LoginPage() {
                     role,
                     avatarUrl: '',
                     roles: response.roles,
+                    organizationId: response.organizationId,
+                    expiration: response.expiration,
                 })
             );
 

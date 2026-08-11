@@ -8,6 +8,9 @@ export interface UserState {
     role: AuthRole | null;
     avatarUrl?: string;
     roles: string[];
+    /** Read-only metadata decoded from the signed access token. */
+    organizationId: string | null;
+    expiration: number | null;
     isAuthenticated: boolean;
     isInitialized: boolean;
 }
@@ -19,6 +22,8 @@ const initialState: UserState = {
     name: null,
     role: null,
     roles: [],
+    organizationId: null,
+    expiration: null,
     isAuthenticated: false,
     isInitialized: false,
 };
@@ -34,6 +39,8 @@ const authSlice = createSlice({
             state.role = action.payload.role;
             state.avatarUrl = action.payload.avatarUrl;
             state.roles = action.payload.roles ?? [];
+            state.organizationId = action.payload.organizationId;
+            state.expiration = action.payload.expiration;
             state.isAuthenticated = true;
             state.isInitialized = true;
         },
@@ -46,6 +53,8 @@ const authSlice = createSlice({
             state.role = null;
             state.avatarUrl = undefined;
             state.roles = [];
+            state.organizationId = null;
+            state.expiration = null;
             state.isAuthenticated = false;
             state.isInitialized = true;
         },

@@ -6,6 +6,7 @@ import {
 	clearAuthCookies,
 	createAuthSession,
 	getJwtMaxAgeSeconds,
+	getJwtPayload,
 	isSecureRequest,
 	setAuthCookies
 } from '@/src/lib/serverAuthCookies'
@@ -86,7 +87,13 @@ const REQUEST_HEADERS_TO_SKIP = new Set([
 	'cookie',
 	'host',
 	'origin',
-	'referer'
+	'referer',
+	// The proxy authenticates only with its HttpOnly cookie, never with a
+	// browser-supplied Authorization header.
+	'authorization',
+	// Tenant context comes only from the signed JWT. Never proxy a caller-set
+	// header that could be interpreted as a tenant selector by the backend.
+	'x-organization-id'
 ])
 const RESPONSE_HEADERS_TO_SKIP = new Set([
 	'connection',
@@ -106,7 +113,7 @@ function getProxyMessages(request: NextRequest) {
 	return { ru: ruMessages, en: enMessages, kk: kkMessages }[locale].proxy
 }
 
-function buildBackendUrl(path: string[], request: NextRequest) {
+export function buildBackendUrl(path: string[], request: NextRequest) {
 	const isSockJsRequest = path[0] === 'ws-crm'
 	const targetPath = isSockJsRequest ? path.slice(1) : path
 	const encodedPath = targetPath
@@ -118,13 +125,15 @@ function buildBackendUrl(path: string[], request: NextRequest) {
 	const targetUrl = new URL(`${baseUrl}/${encodedPath}`)
 
 	request.nextUrl.searchParams.forEach((value, key) => {
-		targetUrl.searchParams.append(key, value)
+		if (key.toLowerCase() !== 'organizationid') {
+			targetUrl.searchParams.append(key, value)
+		}
 	})
 
 	return targetUrl
 }
 
-function buildRequestHeaders(request: NextRequest) {
+export function buildRequestHeaders(request: NextRequest) {
 	const headers = new Headers()
 
 	request.headers.forEach((value, key) => {
@@ -245,14 +254,29 @@ async function proxyRequest(request: NextRequest, context: RouteContext) {
 				)
 			}
 
-			if (getJwtMaxAgeSeconds(loginResponse.token) <= 0) {
-				return NextResponse.json(
+			if (
+				getJwtMaxAgeSeconds(loginResponse.token) <= 0 ||
+				!getJwtPayload(loginResponse.token)
+			) {
+				const response = NextResponse.json(
 					{ message: proxyMessages.tokenExpired },
-					{ status: 502 }
+					{ status: 422 }
 				)
+				clearAuthCookies(response)
+				return response
 			}
 
-			const session = createAuthSession(loginResponse)
+			let session
+			try {
+				session = createAuthSession(loginResponse)
+			} catch {
+				const response = NextResponse.json(
+					{ message: proxyMessages.tokenExpired },
+					{ status: 422 }
+				)
+				clearAuthCookies(response)
+				return response
+			}
 			const response = NextResponse.json(session, {
 				status: backendResponse.status
 			})

@@ -81,10 +81,12 @@ function renderAdmin(role: 'ADMIN' | 'TECHNICIAN') {
     const store = configureStore({ reducer: { auth: authReducer } });
     store.dispatch(
         setUser({
-            id: 'user-1',
+            id: '11111111-1111-4111-8111-111111111111',
             name: 'Test User',
             role,
             roles: [role],
+            organizationId: '22222222-2222-4222-8222-222222222222',
+            expiration: 1_900_000_000,
         })
     );
 

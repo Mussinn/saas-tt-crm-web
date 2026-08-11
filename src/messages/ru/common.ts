@@ -56,6 +56,7 @@ export default {
     },
     notifications: {
         sessionCheckFailed: 'Не удалось проверить текущую сессию. Попробуйте обновить страницу.',
+        systemUpdatedSignInAgain: 'Система обновлена. Пожалуйста, войдите снова.',
         authServerUnavailable: 'Нет связи с сервером авторизации. Проверьте подключение и повторите попытку.',
         newMessage: 'Новое сообщение',
         successTitle: 'Готово',

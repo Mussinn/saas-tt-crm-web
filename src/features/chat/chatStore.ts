@@ -40,6 +40,7 @@ type ChatStoreState = {
 	setPendingMessageId: (messageId: string | null) => void
 	clearPendingMessageId: (messageId: string) => void
 	applyRealtimeEvent: (event: ChatRealtimeEvent) => void
+	reset: () => void
 }
 
 const chatStoreCreator: StateCreator<ChatStoreState> = (set, get) => ({
@@ -158,7 +159,23 @@ const chatStoreCreator: StateCreator<ChatStoreState> = (set, get) => ({
 				unreadCount: 0
 			})
 		}
-	}
+	},
+	reset: () => set({
+		chats: [],
+		messagesByConversation: {},
+		membersByConversation: {},
+		activeConversationId: null,
+		isLoadingChats: false,
+		isLoadingMessages: false,
+		isLoadingMembers: false,
+		hasMoreByConversation: {},
+		nextBeforeByConversation: {},
+		pendingMessageIds: []
+	})
 })
 
 export const useChatStore = create<ChatStoreState>(chatStoreCreator)
+
+export function resetChatStore() {
+	useChatStore.getState().reset()
+}

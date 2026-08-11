@@ -300,7 +300,8 @@ const chatSlice = createSlice({
 					)
 				}
 			}
-		}
+		},
+		resetChatState: () => initialState
 	}
 })
 
@@ -324,7 +325,8 @@ export const {
 	markChatRead,
 	incrementChatUnread,
 	receiveIncomingMessage,
-	applyRealtimeEvent
+	applyRealtimeEvent,
+	resetChatState
 } = chatSlice.actions
 
 export default chatSlice.reducer

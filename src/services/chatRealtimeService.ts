@@ -48,6 +48,7 @@ type ChatRealtimeServiceState = {
 	connectionPromise: Promise<void> | null
 	consumerCount: number
 	disconnectTimer: number | null
+	sessionVersion: number
 }
 
 const state: ChatRealtimeServiceState = {
@@ -62,7 +63,8 @@ const state: ChatRealtimeServiceState = {
 	isOnline: true,
 	connectionPromise: null,
 	consumerCount: 0,
-	disconnectTimer: null
+	disconnectTimer: null,
+	sessionVersion: 0
 }
 
 async function getAccessToken(): Promise<string> {
@@ -165,8 +167,10 @@ async function ensureConnection() {
 	if (state.client?.active || state.client?.connected) return
 	if (state.connectionPromise) return state.connectionPromise
 
+	const connectionVersion = state.sessionVersion
 	state.connectionPromise = (async () => {
 		const accessToken = await getAccessToken()
+		if (connectionVersion !== state.sessionVersion) return
 		debugRealtime('CONNECTING', getWebSocketEndpoint())
 		if (!state.client) state.client = createClient(accessToken)
 		state.client.activate()
@@ -208,6 +212,24 @@ export function disconnectChatRealtime() {
 		state.connectionPromise = null
 		state.hasConnectedBefore = false
 	}, 0)
+}
+
+/** Immediately closes the connection when the authenticated session changes. */
+export function resetChatRealtime() {
+	state.sessionVersion += 1
+	state.consumerCount = 0
+	if (state.disconnectTimer !== null && typeof window !== 'undefined') {
+		window.clearTimeout(state.disconnectTimer)
+	}
+	state.disconnectTimer = null
+	void state.client?.deactivate()
+	state.client = null
+	state.isConnected = false
+	state.isReconnecting = false
+	state.reconnectAttempt = 0
+	state.activeSubscriptions.clear()
+	state.connectionPromise = null
+	state.hasConnectedBefore = false
 }
 
 export function addChatRealtimeListener(listener: ChatRealtimeListener) {

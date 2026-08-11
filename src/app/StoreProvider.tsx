@@ -32,7 +32,18 @@ export default function StoreProvider({children}: {children: ReactNode}){
                 if (!isMounted) return;
 
                 if (!response.ok) {
-                    if (response.status !== 401) {
+                    const body = await response.json().catch(() => null) as {
+                        reason?: unknown;
+                    } | null;
+
+                    if (body?.reason === 'legacy_session') {
+                        store.dispatch(
+                            enqueueNotification({
+                                tone: 'error',
+                                message: tRef.current('systemUpdatedSignInAgain'),
+                            })
+                        );
+                    } else if (response.status !== 401) {
                         store.dispatch(
                             enqueueNotification({
                                 tone: 'error',
@@ -54,6 +65,8 @@ export default function StoreProvider({children}: {children: ReactNode}){
                         role,
                         avatarUrl: '',
                         roles: session.roles,
+                        organizationId: session.organizationId,
+                        expiration: session.expiration,
                     })
                 );
             } catch (error) {
