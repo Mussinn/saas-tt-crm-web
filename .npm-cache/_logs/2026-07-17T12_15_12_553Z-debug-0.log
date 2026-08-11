@@ -1,0 +1,51 @@
+0 verbose cli c:\Program Files\nodejs\node.exe c:\Program Files\nodejs\node_modules\npm\bin\npm-cli.js
+1 info using npm@10.9.3
+2 info using node@v22.19.0
+3 silly config load:file:c:\Program Files\nodejs\node_modules\npm\npmrc
+4 silly config load:file:C:\Users\zhako\Desktop\Teeth-Tech-CRM-Frontend\.npmrc
+5 silly config load:file:C:\Users\zhako\.npmrc
+6 silly config load:file:C:\Users\zhako\AppData\Roaming\npm\etc\npmrc
+7 verbose title npm pack @babel/compat-data@7.28.6
+8 verbose argv "pack" "@babel/compat-data@7.28.6" "--pack-destination" ".npm-packs" "--cache" ".npm-cache"
+9 verbose logfile logs-max:10 dir:C:\Users\zhako\Desktop\Teeth-Tech-CRM-Frontend\.npm-cache\_logs\2026-07-17T12_15_12_553Z-
+10 verbose logfile C:\Users\zhako\Desktop\Teeth-Tech-CRM-Frontend\.npm-cache\_logs\2026-07-17T12_15_12_553Z-debug-0.log
+11 silly logfile done cleaning log files
+12 http fetch GET 200 https://registry.npmjs.org/@babel%2fcompat-data 690ms (cache miss)
+13 http cache https://registry.npmjs.org/@babel%2fcompat-data 77ms (cache hit)
+14 http cache https://registry.npmjs.org/@babel/compat-data/-/compat-data-7.28.6.tgz 0ms (cache hit)
+15 silly tarball no local data for https://registry.npmjs.org/@babel/compat-data/-/compat-data-7.28.6.tgz. Extracting by manifest.
+16 http fetch GET 200 https://registry.npmjs.org/@babel/compat-data/-/compat-data-7.28.6.tgz 79ms (cache miss)
+17 notice
+18 notice package: @babel/compat-data@7.28.6
+19 notice Tarball Contents
+20 notice 1.1kB LICENSE
+20 notice 307B README.md
+20 notice 132B corejs2-built-ins.js
+20 notice 160B corejs3-shipped-proposals.js
+20 notice 41.0kB data/corejs2-built-ins.json
+20 notice 88B data/corejs3-shipped-proposals.json
+20 notice 316B data/native-modules.json
+20 notice 1.2kB data/overlapping-plugins.json
+20 notice 4.2kB data/plugin-bugfixes.json
+20 notice 17.0kB data/plugins.json
+20 notice 136B native-modules.js
+20 notice 141B overlapping-plugins.js
+20 notice 1.2kB package.json
+20 notice 137B plugin-bugfixes.js
+20 notice 129B plugins.js
+21 notice Tarball Details
+22 notice name: @babel/compat-data
+23 notice version: 7.28.6
+24 notice filename: babel-compat-data-7.28.6.tgz
+25 notice package size: 6.6 kB
+26 notice unpacked size: 67.1 kB
+27 notice shasum: 103f466803fa0f059e82ccac271475470570d74c
+28 notice integrity: sha512-2lfu57JtzctfI[...]Z5kjUALo3Lpxg==
+29 notice total files: 15
+30 notice
+31 verbose cwd C:\Users\zhako\Desktop\Teeth-Tech-CRM-Frontend
+32 verbose os Windows_NT 10.0.26200
+33 verbose node v22.19.0
+34 verbose npm  v10.9.3
+35 verbose exit 0
+36 info ok

@@ -1,0 +1,25 @@
+▲ Next.js 16.2.2 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.1.70:3000
+✓ Ready in 523ms
+
+ GET /auth/login 200 in 4.3s (next.js: 1349ms, application-code: 3.0s)
+ GET /auth/login 200 in 538ms (next.js: 41ms, application-code: 498ms)
+ GET /auth/login 200 in 1681ms (next.js: 72ms, application-code: 1609ms)
+ GET /auth/login 200 in 1252ms (next.js: 91ms, application-code: 1161ms)
+○ Compiling /api/auth/session ...
+ GET /api/auth/session 401 in 5.2s (next.js: 5.1s, application-code: 156ms)
+ POST /api/backend/auth/login 400 in 13.4s (next.js: 10.9s, application-code: 2.6s)
+ GET /api/auth/session 401 in 57ms (next.js: 26ms, application-code: 32ms)
+ POST /api/backend/auth/login 404 in 1593ms (next.js: 112ms, application-code: 1481ms)
+ POST /api/backend/auth/login 400 in 90ms (next.js: 32ms, application-code: 58ms)
+ POST /api/backend/auth/login 404 in 152ms (next.js: 33ms, application-code: 119ms)
+ POST /api/backend/auth/login 404 in 93ms (next.js: 25ms, application-code: 67ms)
+ POST /api/backend/auth/login 404 in 143ms (next.js: 65ms, application-code: 78ms)
+ GET /auth/login 200 in 2.5s (next.js: 82ms, application-code: 2.4s)
+ GET /api/auth/session 401 in 1113ms (next.js: 916ms, application-code: 197ms)
+ GET /auth/login 200 in 980ms (next.js: 21ms, application-code: 959ms)
+ GET /api/auth/session 401 in 159ms (next.js: 58ms, application-code: 101ms)
+ POST /api/backend/auth/login 404 in 1938ms (next.js: 83ms, application-code: 1856ms)
+ GET /auth/login 200 in 761ms (next.js: 30ms, application-code: 731ms)
+ GET /api/auth/session 401 in 56ms (next.js: 25ms, application-code: 31ms)

@@ -1,0 +1,125 @@
+[browser] Ошибка входа: {
+  data: {
+    errorCode: [32m'VAL_001'[39m,
+    message: [32m'Некорректный формат email адреса'[39m,
+    status: [33m400[39m,
+    timestamp: [32m'2026-06-29T19:23:18.579533768'[39m
+  },
+  status: [33m400[39m
+} 
+    at handleLogin (src/app/(auth)/auth/login/page.tsx:54:21)
+  52 |             router.push(getAuthRedirectPath(role));
+  53 |         } catch (requestError) {
+> 54 |             console.error('Ошибка входа:', requestError);
+     |                     ^
+  55 |             setError('Неверный email или пароль');
+  56 |         }
+  57 |     }; (src/app/(auth)
+[browser] Ошибка входа: {
+  data: {
+    errorCode: [32m'ENT_001'[39m,
+    message: [32m'Сотрудник с email adminTest@gmail.com не найден'[39m,
+    status: [33m404[39m,
+    timestamp: [32m'2026-06-29T19:46:29.29880125'[39m
+  },
+  status: [33m404[39m
+} 
+    at handleLogin (src/app/(auth)/auth/login/page.tsx:54:21)
+  52 |             router.push(getAuthRedirectPath(role));
+  53 |         } catch (requestError) {
+> 54 |             console.error('Ошибка входа:', requestError);
+     |                     ^
+  55 |             setError('Неверный email или пароль');
+  56 |         }
+  57 |     }; (src/app/(auth)
+[browser] Ошибка входа: {
+  data: {
+    errorCode: [32m'VAL_001'[39m,
+    message: [32m'Некорректный формат email адреса'[39m,
+    status: [33m400[39m,
+    timestamp: [32m'2026-06-29T19:47:03.397402129'[39m
+  },
+  status: [33m400[39m
+} 
+    at handleLogin (src/app/(auth)/auth/login/page.tsx:54:21)
+  52 |             router.push(getAuthRedirectPath(role));
+  53 |         } catch (requestError) {
+> 54 |             console.error('Ошибка входа:', requestError);
+     |                     ^
+  55 |             setError('Неверный email или пароль');
+  56 |         }
+  57 |     }; (src/app/(auth)
+[browser] Ошибка входа: {
+  data: {
+    errorCode: [32m'ENT_001'[39m,
+    message: [32m'Сотрудник с email test_op@gmail.com не найден'[39m,
+    status: [33m404[39m,
+    timestamp: [32m'2026-06-29T19:47:19.704224199'[39m
+  },
+  status: [33m404[39m
+} 
+    at handleLogin (src/app/(auth)/auth/login/page.tsx:54:21)
+  52 |             router.push(getAuthRedirectPath(role));
+  53 |         } catch (requestError) {
+> 54 |             console.error('Ошибка входа:', requestError);
+     |                     ^
+  55 |             setError('Неверный email или пароль');
+  56 |         }
+  57 |     }; (src/app/(auth)
+[browser] Ошибка входа: {
+  data: {
+    errorCode: [32m'ENT_001'[39m,
+    message: [32m'Сотрудник с email op@gmail.com не найден'[39m,
+    status: [33m404[39m,
+    timestamp: [32m'2026-06-29T19:47:34.230983675'[39m
+  },
+  status: [33m404[39m
+} 
+    at handleLogin (src/app/(auth)/auth/login/page.tsx:54:21)
+  52 |             router.push(getAuthRedirectPath(role));
+  53 |         } catch (requestError) {
+> 54 |             console.error('Ошибка входа:', requestError);
+     |                     ^
+  55 |             setError('Неверный email или пароль');
+  56 |         }
+  57 |     }; (src/app/(auth)
+[browser] Ошибка входа: {
+  data: {
+    errorCode: [32m'ENT_001'[39m,
+    message: [32m'Сотрудник с email test_op@gmail.com не найден'[39m,
+    status: [33m404[39m,
+    timestamp: [32m'2026-06-29T19:47:39.12095181'[39m
+  },
+  status: [33m404[39m
+} 
+    at handleLogin (src/app/(auth)/auth/login/page.tsx:54:21)
+  52 |             router.push(getAuthRedirectPath(role));
+  53 |         } catch (requestError) {
+> 54 |             console.error('Ошибка входа:', requestError);
+     |                     ^
+  55 |             setError('Неверный email или пароль');
+  56 |         }
+  57 |     }; (src/app/(auth)
+[browser] SerializableStateInvariantMiddleware took 59ms, which is more than the warning threshold of 32ms. 
+If your state or actions are very large, you may want to disable the middleware as it might cause too much of a slowdown in development mode. See https://redux-toolkit.js.org/api/getDefaultMiddleware for instructions.
+It is disabled in production builds, so you don't need to worry about that. (file://C:/Users/zhako/Desktop/Teeth-Tech-CRM-Frontend/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2431:13)
+[browser] ImmutableStateInvariantMiddleware took 1137ms, which is more than the warning threshold of 32ms. 
+If your state or actions are very large, you may want to disable the middleware as it might cause too much of a slowdown in development mode. See https://redux-toolkit.js.org/api/getDefaultMiddleware for instructions.
+It is disabled in production builds, so you don't need to worry about that. (file://C:/Users/zhako/Desktop/Teeth-Tech-CRM-Frontend/.next/dev/static/chunks/node_modules_next_dist_115brz8._.js:2431:13)
+[browser] Ошибка входа: {
+  data: {
+    errorCode: [32m'ENT_001'[39m,
+    message: [32m'Сотрудник с email adminTest@gmail.com не найден'[39m,
+    status: [33m404[39m,
+    timestamp: [32m'2026-06-29T19:53:08.624349662'[39m
+  },
+  status: [33m404[39m
+} 
+    at handleLogin (src/app/(auth)/auth/login/page.tsx:54:21)
+  52 |             router.push(getAuthRedirectPath(role));
+  53 |         } catch (requestError) {
+> 54 |             console.error('Ошибка входа:', requestError);
+     |                     ^
+  55 |             setError('Неверный email или пароль');
+  56 |         }
+  57 |     }; (src/app/(auth)
